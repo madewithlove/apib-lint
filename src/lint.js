@@ -1,6 +1,6 @@
 import fs from 'fs';
-import colors from 'colors';
 import protagonist from 'protagonist';
+import formatWarning from './formatWarning';
 
 export default function (file) {
     fs.readFile(file, (errors, source) => {
@@ -13,15 +13,7 @@ export default function (file) {
 
             if (result.warnings.length) {
                 result.warnings.forEach(warning => {
-                    const {message, location} = warning;
-                    const presenter = '\n>> ';
-
-                    // Get code snippet
-                    const {index, length} = location[0];
-                    let code = source.slice(index, index + length).trim();
-                    code = presenter + code.replace(/\n/g, presenter);
-
-                    console.log(`${colors.red('WARN:')} ${message}${colors.grey(code)}\n`);
+                    console.log(formatWarning(source, warning));
                 });
 
                 throw new Error(`${result.warnings.length} warnings found in APIB file`);
