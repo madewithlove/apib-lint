@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+var yargs = require('yargs').usage('Usage: $0 apiary.apib ');
+var argv = yargs.argv;
+
+if (argv.help) {
+    console.log(yargs.help());
+    return;
+}
+
+var filepath = argv._[0];
+if (filepath === undefined) {
+    console.error("Error: Must specify path to blueprint file.\n");
+    console.log(yargs.help());
+    return;
+}
+
+var lint = require('../dist/lint').default;
+lint(filepath);

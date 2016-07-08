@@ -1,0 +1,35 @@
+{
+  "name": "apib-lint",
+  "version": "0.1.0",
+  "description": "Basic linter for APIB files",
+  "license": "MIT",
+  "main": "src/lint.js",
+  "bin": {
+    "apib-lint": "bin/apib-lint"
+  },
+  "keywords": [
+    "apib",
+    "lint"
+  ],
+  "author": {
+    "name": "Madewithlove",
+    "email": "heroes@madewithlove.be"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "protagonist": "^1.4.1",
+    "yargs": "^4.7.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "babel src -d dist",
+    "build:watch": "npm run build -- --watch",
+    "prepublish": "BABEL_ENV=production npm run build",
+    "postversion": "git push; git push --tags; npm publish"
+  }
+}
