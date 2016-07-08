@@ -25,7 +25,8 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-0": "^6.5.0",
     "eslint": "^3.0.1",
-    "eslint-config-madewithlove": "^3.4.2"
+    "eslint-config-madewithlove": "^3.4.2",
+    "mocha": "^2.5.3"
   },
   "scripts": {
     "prebuild": "rm -rf dist",
@@ -33,6 +34,8 @@
     "build:watch": "npm run build -- --watch",
     "prepublish": "BABEL_ENV=production npm run build",
     "postversion": "git push; git push --tags; npm publish",
+    "test": "mocha src --recursive --no-timeouts --compilers js:babel-core/register",
+    "test:watch": "npm run test -- --watch",
     "lint": "eslint src"
   }
 }
