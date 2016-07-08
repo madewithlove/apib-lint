@@ -1,6 +1,6 @@
 {
   "name": "apib-lint",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Basic linter for APIB files",
   "license": "MIT",
   "main": "src/lint.js",
