@@ -3,6 +3,10 @@
   "rules": {
     "import/no-unresolved": 0,
     "no-console": 0,
-    "no-magic-numbers": 0
+    "no-magic-numbers": 0,
+    "filenames/match-regex": "off"
+  },
+  "env": {
+    "mocha": true
   }
 }
